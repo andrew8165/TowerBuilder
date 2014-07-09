@@ -24,5 +24,19 @@ namespace TowerBuilder
         {
             InitializeComponent();
         }
+        // Animation movement on the screen. 
+        void MoveTo(this Image target, double newX, double newY)
+        {
+            var top = Canvas.GetTop(target);
+            var left = Canvas.GetLeft(target);
+            TranslateTransform trans = new TranslateTransform();
+            target.RenderTransform = trans;
+            DoubleAnimation anim1 = new DoubleAnimation(top, newY - top, TimeSpan.FromSeconds(10));
+            DoubleAnimation anim2 = new DoubleAnimation(left, newX - left, TimeSpan.FromSeconds(10));
+            trans.BeginAnimation(TranslateTransform.XProperty,anim1);
+            trans.BeginAnimation(TranslateTransform.YProperty,anim2);
+        }
     }
+    
+    
 }
