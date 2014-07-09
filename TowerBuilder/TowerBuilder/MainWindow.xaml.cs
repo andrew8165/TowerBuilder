@@ -25,7 +25,7 @@ namespace TowerBuilder
             InitializeComponent();
         }
         // Animation movement on the screen. 
-        void MoveTo(this Image target, double newX, double newY)
+        void MoveTo(Image target, double newX, double newY)
         {
             var top = Canvas.GetTop(target);
             var left = Canvas.GetLeft(target);
